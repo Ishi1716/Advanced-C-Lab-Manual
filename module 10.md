@@ -9,12 +9,35 @@ Algorithm:
 4.	Call the search function and perform other linked list operations as needed.
  
 Program:
+```
+struct Node{
+    char data; 
+    struct Node *next;
+}*head;
 
-//type your code here
+void search(char data){
+    struct Node *temp = head;
+    int flag = 0, i = 1;
+    while(temp != NULL){
+        if(temp->data == data){
+            flag = 1;
+            break;
+        }
+        i++;
+        temp = temp->next;
+    }
+    flag ? printf("item %c found at location %d", data, i) : printf("Item not found");
+}
+```
+
+
 
 Output:
 
-//paste your output here
+<img width="758" height="498" alt="image" src="https://github.com/user-attachments/assets/6ba38308-09aa-465e-8c2b-73d5af7120d6" />
+
+
+
 
 
 
@@ -33,12 +56,34 @@ Algorithm:
 4.	Call the insert function and perform other linked list operations as needed.
  
 Program:
+```
+struct Node{
+    int data; 
+    struct Node *next;
+}*head;
 
-//type your code here
+
+void insert(int data)
+{
+    struct Node *n = (struct Node *) malloc (sizeof(struct Node));
+    n -> data = data;
+    if(head == NULL){
+        head = n;
+        return;
+    }
+    struct Node *temp = head;
+    while(temp -> next != NULL){
+        temp = temp -> next;
+    }
+    temp -> next = n;
+}
+```
+
 
 Output:
 
-//paste your output here
+<img width="384" height="519" alt="image" src="https://github.com/user-attachments/assets/6dbb62eb-4653-4e75-aa77-2480d344d78e" />
+
 
  
 Result:
@@ -57,12 +102,32 @@ Algorithm:
 4.	Move to the next node by updating the temp pointer to point to the next node (temp = temp->next).
  
 Program:
+```
+struct Node
+{
+    struct Node *prev;
+    struct Node *next;
+    int data;
+}*head;
 
-//type your code here
+void display()
+{
+    struct Node *temp = head;
+    while(temp != NULL){
+        printf("%d\n", temp->data);
+        temp = temp->next;
+    }
+}
+```
+
+
 
 Output:
 
-//paste your output here
+<img width="444" height="489" alt="image" src="https://github.com/user-attachments/assets/7c78d08f-3f80-4cbf-8c6b-fe34f3b01250" />
+
+
+
 
 
 Result:
@@ -83,11 +148,41 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+struct Node
+{
+    struct Node *prev;
+    struct Node *next;
+    float data;
+}*head;
+
+void insert(float data)
+{
+    struct Node *n = (struct Node *) malloc (sizeof(struct Node));
+    n -> data = data;
+    n -> next = NULL;
+    if(head == NULL){
+        head = n;
+        head -> prev = NULL;
+        return;
+    }
+    struct Node *temp = head;
+    while(temp -> next != NULL){
+        temp = temp -> next;
+    }
+    temp -> next = n;
+    n -> prev = temp;
+}
+```
+
+
 
 Output:
 
-//paste your output here
+<img width="434" height="471" alt="image" src="https://github.com/user-attachments/assets/9f93e48a-c03c-4fb2-b844-c1487423f98e" />
+
+
+
 
 
 Result:
@@ -124,12 +219,34 @@ o	If the element is not found in any node, print a message indicating the elemen
 
 
 Program:
+```
+struct Node
+{
+    struct Node *prev;
+    struct Node *next;
+    float data;
+}*head;
 
-//type your code here
+void delete()
+{
+    if(head == NULL){
+        printf("UNDERFLOW\n");
+        return;
+    }
+    head = head->next;
+    if(head != NULL){
+        head->prev = NULL; 
+    }
+    printf("Node deleted\n");
+}
+```
+
+
 
 Output:
 
-//paste your output here
+<img width="527" height="668" alt="image" src="https://github.com/user-attachments/assets/5da9d4aa-4d64-4c5f-a1ad-9138469a7b24" />
+
 
 
 
