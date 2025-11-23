@@ -15,13 +15,32 @@ Else
 6.	Return 0
  
 Program:
-
-//type your code here
+```
+#include<stdio.h>
+struct asd{
+    int age;
+    char name[20];
+};
+int main()
+{
+    struct asd p;
+    scanf("%d",&p.age);
+    scanf("%s",p.name);
+    printf("Age:%d\n",p.age);
+    printf("Name:%svaccine:%d\n",p.name,p.age);
+    if(p.age>18){
+       printf("eligibility:yes"); 
+    }
+    else{
+        printf("eligibility:no");
+    }
+}
+```
 
 
 Output:
 
-//paste your output here
+<img width="610" height="282" alt="image" src="https://github.com/user-attachments/assets/748e2149-82f7-42c6-89b9-afc395879b9a" />
 
 
 Result:
@@ -44,17 +63,37 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+struct Numbers {
+    int num1;
+    int num2;
+    
+};
+struct Result {
+    int sum;
+};
+struct Result compute(struct Numbers nums) {
+    struct Result res;
+    res.sum = nums.num1 + nums.num2;
+    return res; 
+}
 
+int main() {
+    struct Numbers nums;
+    struct Result res;
+    scanf("%d %d ", &nums.num1, &nums.num2);
+    res = compute(nums);
+    printf("%d\n", res.sum);
+    return 0;
+}
+```
 
 
 
 Output:
 
-
-//paste your output here
-
-
+<img width="450" height="300" alt="image" src="https://github.com/user-attachments/assets/0118ae4c-bff3-46a5-818c-f8ca1a93f9cd" />
 
 
 Result:
@@ -85,23 +124,29 @@ Use scanf to input the file name into the name array.
 5.	Return 0 to indicate successful program execution.
  
 Program:
-
-//type your code here
+```
+#include <stdio.h>
+int main()
+{
+    char filename[100];
+    FILE *fp;
+    scanf("%s",filename);
+    fp=fopen(filename,"w");
+    if(fp!=NULL){
+        printf("%s File Created Successfully\n",filename);
+        printf("%s File Opened\n",filename);
+    }
+    fclose(fp);
+    printf("%s File Closed",filename);
+}
+```
 
 
 
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
-
-
+<img width="910" height="349" alt="image" src="https://github.com/user-attachments/assets/c783dcef-6dbf-4480-bb69-f49507526039" />
 
 
 
@@ -132,20 +177,40 @@ Use scanf to input the file name into the name array and the number of strings i
 5.	Return 0 to indicate successful program execution.
  
 Program:
-
-//type your code here
-
+```
+#include <stdio.h>
+int main()
+{
+   char name[50],ch[100];
+   int i,num;
+   scanf("%s", name);
+   scanf("%d", &num);
+   FILE *fptr = fopen(name, "w");
+   
+  if(fptr == NULL)
+  {
+      printf("Error!");
+      return 1;
+  }else{
+   printf("%s Opened\n",name);
+  }
+   for(i = 0; i < num; i++)
+   {
+      fgets(ch,sizeof(ch),stdin);
+      fprintf(fptr,"%s\n",ch);
+   }
+   fclose(fptr);
+   printf("Data added Successfully");
+   return 0;
+}
+```
 
 
 
 Output:
 
 
-//paste your output here
-
-
-
-
+<img width="650" height="335" alt="image" src="https://github.com/user-attachments/assets/89f1327f-261e-4230-a59a-1456ebcb54c9" />
 
 
 Result:
@@ -186,19 +251,41 @@ Algorithm:
 13.End the program by returning 0.
 
 Program:
-
-//type your code here
+```
+#include <stdio.h>
+typedef struct electricityBill{
+    int sNo;
+    char sName[20];
+    int prev, curr;
+    int units;
+    float amt;
+}eb;
+int main(){
+    eb c;
+    scanf("%d\n%s\n%d\n%d", &c.sNo, c.sName, &c.curr, &c.prev);
+    c.units = c.curr - c.prev;
+    if(c.units <= 100){
+        c.amt = c.units * 3;
+    }
+    else if(c.units > 100 && c.units <= 300){
+        c.amt = 300 + (c.units - 100) * 4;
+    }
+    else{
+        c.amt = 1100 + (c.units - 300) * 5;
+    }
+    printf("service number:%d\n", c.sNo);
+    printf("service name:%s\n", c.sName);
+    printf("unit consumption:%d\n", c.units);
+    printf("amount:%.2f", c.amt);
+}
+```
 
 
 
 
 Output:
 
-
-//paste your output here
-
-
-
+<img width="627" height="459" alt="image" src="https://github.com/user-attachments/assets/35a5f454-5fcf-4132-aa79-05a63fc190c2" />
 
 
 
